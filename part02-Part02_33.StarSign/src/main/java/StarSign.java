@@ -44,16 +44,8 @@ public class StarSign {
         // fourth part of the exercise
         int star = 1;
         
-        for(int i = size; i >= 1; i--){
-            for(int space = i -1; space >= 1; space--){
-                System.out.print(" ");
-            }
-            
-            for(int j = 1; j <= star; j++){
-                System.out.print("*");
-                
-            }
-            System.out.println();
+        for(int i = 0; i < size; i++){
+            printStars(star);
             star+=1;
         }
         
