@@ -8,6 +8,8 @@ public class FirstAndLast {
         Scanner scanner = new Scanner(System.in);
 
         ArrayList<String> list = new ArrayList<>();
+        
+        
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("")) {
@@ -16,6 +18,9 @@ public class FirstAndLast {
 
             list.add(input);
         }
+        
+        System.out.println(list.get(0));
+        System.out.println(list.get(list.size() -1));
 
     }
 }
