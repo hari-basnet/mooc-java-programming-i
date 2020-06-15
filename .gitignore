@@ -11,4 +11,4 @@
 /part03-Part03_05.LastInList/target/
 /part03-Part03_11.IndexOfSmallest/target/
 **/**/target/
-
+**/nbactions.xml
