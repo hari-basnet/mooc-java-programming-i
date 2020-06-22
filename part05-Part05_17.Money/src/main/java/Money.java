@@ -24,40 +24,31 @@ public class Money {
     }
     
     public Money plus(Money addition) {
-    Money newMoney = new Money(this.euros + addition.euros, this.cents + addition.cents);
-    
-    // return the new Money object
-    return newMoney;
+        int euros = this.euros + addition.euros();
+        int cents = this.cents + addition.cents();
+        if (cents > 99) {
+            cents = cents - 100;
+            euros = euros + 1;
+        }
+        return new Money(euros, cents);
     }
     
     public boolean lessThan(Money compared){
-        
-        if(this.euros == compared.euros()){
-            if(this.cents < compared.cents()){
-                return true;
-            }else{
-                return false;
-            }
-            
-        }
-        
-        if(this.euros < compared.euros()){
-            return true;
-        }
-        
-        return false;
+        return (100 * this.euros + this.cents) < (100 * compared.euros() + compared.cents());
     }
     
     public Money minus(Money decreaser){
-        if(this.lessThan(decreaser)){
-            return new Money(0,0);
+        int euros = this.euros - decreaser.euros();
+        int cents = this.cents - decreaser.cents();
+        if (cents < 0) {
+            cents = cents + 100;
+            euros = euros - 1;
         }
-        
-        int totalCents = this.euros * 100 + this.cents;
-        int decreaserTotalCents = decreaser.euros() * 100 + decreaser.cents();
-        
-        
-        return new Money(0, totalCents - decreaserTotalCents);
+        // if the value becomes negative, return zero
+        if (euros < 0) {
+            return new Money(0, 0);
+        }
+        return new Money(euros, cents);
     }
 
     public String toString() {
