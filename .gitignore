@@ -1,14 +1,8 @@
-**/Test Packages
+
 **/Dependencies
 **/Test Dependencies
 **/Java Dependencies
 **/Project Files
 **/*.netbeans_automatic_build
-/part01-Part01_29.Adulthood/target/
-/part01-Part01_35.CheckingTheAge/target/
-/part02-Part02_12.AverageOfNumbers/target/
-/part02-Part02_20.RepeatingBreakingAndRemembering/target/
-/part03-Part03_05.LastInList/target/
-/part03-Part03_11.IndexOfSmallest/target/
 **/**/target/
 **/nbactions.xml
