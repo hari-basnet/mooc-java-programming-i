@@ -51,7 +51,6 @@ public class MainProgram {
         
         for(int i = 0; i < array.length; i++){
             swap(array, indexOfSmallestFrom(array, i), i);
-            
         }
     }
        
