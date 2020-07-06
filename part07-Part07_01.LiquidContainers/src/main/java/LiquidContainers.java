@@ -14,49 +14,59 @@ public  class LiquidContainers {
             System.out.println("Second: " + second + "/100");
 
             String input = scan.nextLine();
-            String[] inputBreak = input.split(" ");
-            String command = inputBreak[0];
-            int amount = Integer.valueOf(inputBreak[1]);
             
             if (input.equals("quit")) {
                 break;
             }
             
+            String[] parts = input.split(" ");
+            int amount = Integer.valueOf(parts[1]);
+            String command = parts[0];
+            
+            if(amount < 0){
+                continue;
+            }
+            
             switch(command){
             case "add":
-                if(first + amount <= 100){
-                    first += amount;
-                }else{
-                    first = first + (100 - first);
+                
+                first = first + amount;
+                if(first < 0){
+                    first = 0;
+                }
+                if(first > 100 ){
+                    first = 100;
                 }
                 break;
+
             case "move":
-                int amountToBeMoved = first - amount;
-                if(amountToBeMoved < 0){
-                    amountToBeMoved = first;
-                    second += amountToBeMoved;
-                }else {
-                    second += amountToBeMoved;
+                if(amount > first){
+                    amount = first;
                 }
-        
-                if(amountToBeMoved + second > 100 ){
-                    second = second + (100 - second);
-                }else {
-                    second = second + amountToBeMoved;
+                
+                first -= amount;
+                second += amount;
+                    
+                if(second > 100){
+                    second = 100;
                 }
                 break;
-            case "remove": 
-                int amountToRemove = second -amount;
-                if(amountToRemove < 0){
-                    second = 0;
-                }else {
-                    second = second - amount;
+
+            case "remove":
+                if(amount > second){
+                    amount = second;
                 }
+                
+                second -= amount;
+                    
                 break;
+
             default :
                 break;
             }
         }
+        
+        
     }
 
 }
