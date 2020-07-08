@@ -54,7 +54,7 @@ public class Searching {
         return -1;
     }
 
-    public static int binarySearch(ArrayList<Book> books, int searchedId) {
+    public static int binarySearch(ArrayList<Book> books, long searchedId) {
         
         int begin = 0;
         int end = books.size() -1;
@@ -63,13 +63,10 @@ public class Searching {
             int middle = (end + begin) / 2;
             if(books.get(middle).getId() == searchedId){
                 return books.get(middle).getId();
-            }
-            
-            if(books.get(middle).getId() < searchedId){
+            }else if(books.get(middle).getId() < searchedId){
                 begin = middle + 1;
-            }
-            if(books.get(middle).getId() > searchedId){
-                end = middle -1;
+            }else {
+                end = middle - 1;
             }
         }
         return -1;
