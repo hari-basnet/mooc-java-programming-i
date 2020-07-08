@@ -62,7 +62,7 @@ public class Searching {
         while(begin <= end){
             int middle = (end + begin) / 2;
             if(books.get(middle).getId() == searchedId){
-                return books.get(middle).getId();
+                return middle;
             }else if(books.get(middle).getId() < searchedId){
                 begin = middle + 1;
             }else {
