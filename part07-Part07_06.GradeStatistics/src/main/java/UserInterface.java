@@ -32,12 +32,19 @@ public class UserInterface {
             }
             
             statistics.addPoints(input);
+            statistics.calculateGrade(input);
             
         }
+        
+        statistics.gradeDistrubution();
+        
         String averagePrint = statistics.passingAverage() == 0 ? "-" : String.valueOf(statistics.passingAverage());
         System.out.println("Point average (all): " + statistics.calculateAverage(statistics.getPoints()));
         System.out.println("Point average (passing): " + averagePrint);
         System.out.println("Pass percentage: " + statistics.passPercentage());
+        
+        System.out.println(statistics.getGrades().toString());
+        statistics.printGradeDistribution();
     }
     
     
